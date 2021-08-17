@@ -11,6 +11,7 @@ function getReceipt() {
             text1 = text1+selectedSize+"<br>";
         }
     }
+    // Will display base price of pizza depending what is selected
     if (selectedSize === "Personal Pizza") {
         sizeTotal = 6;
     } else if (selectedSize === "Small Pizza") {
@@ -29,11 +30,12 @@ function getReceipt() {
     // these variables will get passed on to each function
     getTopping(runningTotal, text1);
 };
-
+// Will add topping to array when checked and update price
 function getTopping(runningTotal, text1) {
     var toppingTotal = 0;
     var selectedTopping = [];
     var toppingArray = document.getElementsByClassName("toppings");
+    // Goes through list of toppings and if checked add to selectedTopping array.
     for (var j = 0; j < toppingArray.length; j++) {
         if (toppingArray[j].checked) {
             selectedTopping.push(toppingArray[j].value);
@@ -47,6 +49,7 @@ function getTopping(runningTotal, text1) {
     } else {
         toppingTotal = 0;
     }
+    // Displays total Price and selected toppings.
     runningTotal = (runningTotal + toppingTotal);
     console.log("total selected topping items: " + toppingCount);
     console.log(toppingCount + " topping - 1 free topping = " + "$" + toppingTotal + ".00");
